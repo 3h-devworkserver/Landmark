@@ -1,0 +1,1 @@
+<p>Hello Admin,<br><br>Recently a user send the message from contact.</p><p> The information received:</p><p>Full name : {{ $user['fullname ']}}</p><p>Email : {{ $user['email'] }}</p><p>Cell Phone : {{ $user['phone'] }}</p><p> Message : {{ $user['message'] }}</p><p>Thank you</p><p><br></p><p></p>

@@ -1,0 +1,493 @@
+/* #Media Queries
+================================================== */
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (min-width:1500px) {
+    .home #intro {
+        min-height: 948px;
+    }
+    #intro.about-wrapper {
+        background-position: center;
+        -webkit-background-size: cover;
+        background-size: cover;
+        height: 898px;
+    }
+    .preparation-wrapper {
+        min-height: 718px;
+    }
+    #intro .down-arrow {
+      bottom: -250px;
+
+    }
+    #intro.about-wrapper .home-container {
+    padding-top: 70px;
+}
+    /* #intro .home-container {
+      padding-top: 200px;
+  }*/
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width:768px) and (max-width:1024px) {
+    /* header */
+    .main-header .navbar {
+        height: 85px;
+    }
+    .navbar-header {
+        float: none;
+        text-align: center;
+        width: 100%;
+    }
+    .main-header .navbar-brand {
+        display: block;
+        height: auto;
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+    }
+    .navbar-brand > img {
+        margin: 0 auto;
+        width: 120px;
+    }
+    .main-header .navbar .navbar-right {
+        float: none !important;
+        margin-top: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .main-header .navbar-inverse .navbar-nav > li > a {
+        font-size: 16px;
+        padding: 5px 9px;
+    }
+    .navbar-brand > img {
+        width: 120px;
+    }
+    /* third */
+    .third-bg-wrap,
+    .third-bg-image{
+        min-height: 330px;
+
+    }
+    .third-bg-image{
+        background-size: 110% auto;
+    }
+    /* fourth */
+    .language.language-mbl .box-wrap{
+        position: static;
+    }
+    /* prepatation page */
+    .preparation-class .logo-class {
+        margin: 0 30px;
+        width: 60%;
+    }
+    /* news and events page */
+    .newsandevents-wrapper .thumbnail .caption {
+        min-height: 290px;
+    }
+    .news-detail p.lead {
+        width: auto;
+    }
+    /* contact page */
+    .contact-padding {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* news-detail */
+    .news-detail .detail-img .imgwrap {
+      width: 211px;
+    }
+    /* testimonials */
+    .testimonials-wrapper .thumb-bg{
+        min-height: 215px;
+    }
+    .testimonials iframe{
+        width: 100%;    
+    }
+    .testimonials-wrapper .desc-wrap {
+      padding: 0 20px 0 30px;
+    }
+    .testimonials-wrapper .descrption .desc-txt::before, .testimonials-wrapper .descrption .desc-txt::after{
+        height: 20px;
+        width: 23px;
+    }
+    .testimonials-wrapper .descrption .desc-txt::before {
+      left: -30px;
+      
+    }
+    .testimonials-wrapper .descrption p {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .testimonials iframe {
+      height: 350px !important;
+      
+    }
+}
+@media only screen and (min-width:768px) and (max-width:1024px) and (orientation:landscape) {
+    /* header */
+    .main-header .navbar {
+        height: 70px;
+    }
+    .navbar-brand > img {
+        margin-top: 13px;
+        width: 150px;
+    }
+    .navbar-header {
+        float: left;
+        text-align: left;
+        width: auto;
+    }
+    .main-header .navbar .navbar-right {
+        margin-top: 20px;
+        width: auto !important;
+        float: right !important;
+    }
+    .main-header .navbar-inverse .navbar-nav > li > a {
+        padding: 8px 15px;
+    }
+    /* third */
+    .third-bg-wrap,
+    .third-bg-image{
+        min-height: 370px;
+    }
+    /* news and events page */
+    .newsandevents-wrapper .thumbnail .caption {
+        min-height: 350px;
+    }
+    /* universitites */
+    .university-wrapper .thumbnail{
+        min-height: 532px;
+    }
+    /* news-detail */
+    .news-detail .detail-img .imgwrap {
+      width: 285px;
+    }
+    /* testimonials */
+    .testimonials-wrapper .thumb-bg{
+        min-height: 315px;
+    }
+    .testimonials-wrapper .descrption .desc-txt::after {
+      
+      right: -30px;
+      
+    }
+    .testimonials iframe{
+        width: 100%;    
+    }
+}
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width:767px) {
+    /* typography */
+    h1 {
+      font-size: 30px;   
+      line-height: 30px;      
+    }
+    /*global*/
+    .down-arrow, .up-arrow, .right-arrow {
+
+      font-size: 24px;
+      height: 30px;
+      line-height: 27px;      
+      width: 30px;
+    }
+    .btn-outline{
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .thumnail-slider .owl-nav .owl-next, .thumnail-slider .owl-nav .owl-prev {
+      font-size: 24px;
+      height: 30px;
+      line-height: 27px;      
+      width: 30px;
+    }
+    /* header */
+    .navbar-brand > img {
+      height: 32px;
+    }
+    .main-header .navbar-toggle {
+        border: none;
+        margin-top: 16px;
+    }
+    .main-header .navbar-toggle .icon-bar {
+        height: 3px;
+    }
+    .main-header .navbar-inverse .navbar-toggle .icon-bar {
+        background-color: #a2bbce;
+    }
+    .main-header .navbar-inverse .navbar-toggle:hover,
+    .main-header .navbar-inverse .navbar-toggle:focus {
+        background-color: #a2bbce;
+    }
+    .main-header .navbar-inverse .navbar-toggle:hover .icon-bar,
+    .main-header .navbar-inverse .navbar-toggle:focus .icon-bar {
+        background-color: #fff;
+    }
+    .main-header .navbar-collapse.collapse.in,
+    .main-header .navbar-inverse .navbar-collapse,
+    .main-header .navbar-inverse .navbar-form {
+        border: medium none;
+    }
+    .main-header .navbar-header {
+        background: #fff none repeat scroll 0 0;
+    }
+    .main-header .navbar-inverse {
+        background-color: #E9FCFF;
+        border: medium none;
+        height: auto;
+    }
+    /* banner */
+    #intro {
+        background-position: -530px center !important;
+        min-height: 100%;
+    }
+    #intro .home-container {
+        margin: 0 auto;
+        padding-right: 20px;
+        position: absolute;
+        top: 55%;
+        -webkit-transform: translateY(-55%);
+        -ms-transform: translateY(-55%);
+        -o-transform: translateY(-55%);
+        transform: translateY(-55%);
+        width: 80%;
+    }
+    #intro .home-container h1 {
+        font-size: 32px;
+        line-height: 20px;
+    }
+    #intro .home-container p {
+        font-size: 14px;
+    }
+    #intro .home-container .btn-grp {
+        margin-top: 10px;
+    }
+    .cover {
+        margin-left: 0;
+    }
+    #intro .social-links li a {
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+        width: 30px;
+    }
+    #intro .down-arrow {
+      bottom: -70px;
+
+    }
+    #intro .home-container .btn-grp .btn-outline {
+      margin: 15px 5px 0;
+      
+    }
+    /* second sectioN */
+    .thumnail-slider .owl-nav {
+        width: 100%;
+    }
+    #second .slide {
+        min-height: 275px;
+    }
+    .container.intro_cont {
+      margin-top: 40px;
+    }
+    .fixed-width-content {
+        width: 100%;
+    }
+    footer .social-links {
+        float: none;
+        margin: 20px auto 10px;
+        text-align: center;
+    }
+    /* third section */
+    #third {
+      padding-top: 0;
+  margin-bottom: 20px;
+    }
+
+    .third-bg-image,
+    .third-bg-wrap{
+        min-height: 120px;
+        margin-bottom: 5px;
+
+    }
+    .third-bg-image {
+      background-size: 130% auto;
+    }
+    .third-bg-image.third-bg-image-mbl {
+      position: static;
+    }
+    /* fourth section */
+    #forth {
+        padding: 30px 0;
+    }
+    #forth .language{
+        width: 100%;
+    }
+    .language.language-mbl .box-wrap{
+        position: static;
+        width: 44%;
+    }
+    .language.language-mbl .box-wrap img{
+        height: 40px;          
+        width: 60px;
+    }
+
+    #forth .language.language-mbl{
+        margin: 10px auto;
+        height: auto;
+    }
+    /* fifth */
+    #fifth {
+      
+      padding:0;
+    }
+    /* country page */
+    .blocks.bg-image {
+        min-height: 250px;
+    }
+    .blocks .block-content {
+        width: 70%;
+    }
+    /*universitites*/
+    .university-wrapper{
+        height: 100% !important;
+    }
+    /* prepatatoion page */
+    .preparation-class .logo-class {
+        margin: 0;
+        width: 75%;
+    }
+    .single aside {
+        margin-top: 40px;
+    }
+    .single aside .preparation-class span.logo-class {
+        display: block;
+        float: none !important;
+    }
+    /* news and events page */
+    .newsandevents-wrapper .thumbnail .caption {
+        min-height: 350px;
+    }
+    .detail-sidebar {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+    }
+    .news-detail p.lead,
+    .news-detail .detail-sidebar .social-links {
+        margin-top: 30px;
+    }
+    /* news-detail */
+    .news-detail .detail-sidebar img{
+        float: none;
+        margin-bottom: 0;
+    }
+    .news-detail .detail-wrapper .caption .news-heading {
+      font-size: 32px;
+      margin-bottom: 30px;
+      
+    }
+    .newsandevents-wrapper .thumbnail .caption a {
+          white-space: normal;
+    }
+    .pr0 {
+      padding-left: 0;
+      
+    }
+     .newsandevents-wrapper .thumbnail .table-responsive > .table > thead > tr > th, 
+     .newsandevents-wrapper .thumbnail .table-responsive > .table > tbody > tr > th, 
+     .newsandevents-wrapper .thumbnail .table-responsive > .table > tfoot > tr > th, 
+     .newsandevents-wrapper .thumbnail .table-responsive > .table > thead > tr > td, 
+     .newsandevents-wrapper .thumbnail .table-responsive > .table > tbody > tr > td, 
+     .newsandevents-wrapper .thumbnail .table-responsive > .table > tfoot > tr > td{
+        white-space: normal;
+        font-size: 13px;
+
+    }
+    .news-detail .detail-img .imgwrap {
+      width: 100%;
+      float: none;
+    }
+    .news-detail .detail-img .imgwrap:first-child {
+      margin-right: 0;
+    }
+    /* contact page */
+    .contact-wrapper {
+      
+      padding: 30px 0;
+    }
+    .contact-wrapper .social-links {
+      margin-bottom: 40px;
+      
+    }
+    .contact-padding {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 30px;
+    }
+    .contact-address [class*="col-"],
+    .contact-address [class^="col-"] {
+        border-right: none;
+        padding-bottom: 20px;
+    }
+    .contact-address .social-links {
+        margin: 0;
+    }
+    /* testimonials */
+    .testimonials-wrapper{
+        padding: 30px;
+    }
+    .testimonials-wrapper .desc-wrap {
+      padding: 0 0 0 10px;
+    }
+    .testimonials-wrapper .descrption .desc-txt::before {
+      left: -30px;
+      top: -5px;
+    }
+    .testimonials-wrapper .descrption .desc-txt::before, 
+    .testimonials-wrapper .descrption .desc-txt::after{
+        width: 23px;
+        height: 15px;
+
+    }
+    .testimonials-wrapper .descrption {
+      margin-top: 30px;
+    }
+    .testimonials-wrapper .descrption p {
+      font-size: 15px;
+      line-height: 24px;
+    }
+    .testimonials-wrapper .thumb-bg{
+        min-height: 215px;
+        margin-bottom: 20px;
+    }
+    .testimonials iframe{
+        height: 200px !important;
+    }
+    .testimonials-wrapper .position, .testimonials-wrapper .country {
+      font-size: 16px;
+      line-height: 18px;
+      
+    }
+    section.main-wrapper.register-form .formwrapper {
+      margin: 0 auto;
+      width: 95%;
+    }
+}
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width:480px) and (max-width:767px) {
+  #intro {
+      background-position:center top !important;
+      min-height: 100%;
+    }
+}
+@media only screen and (min-width:360px) and (max-width:640px) {
+     #intro {
+      /*background-position: -750px center !important;*/
+      min-height: 100%;
+    }
+
+}
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: landscape) {}
+@media only screen and (min-width: 481px) and (max-height: 640px) {
+}
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width:479px) {}

@@ -1,0 +1,1 @@
+<p>Hello Admin,<br><br>Recently a user registered from news and events.</p><p>The information received:</p><p>Full name : {{ $user['fullname']}}</p><p>Email : {{ $user['email'] }}</p><p>Phone : {{ $user['phone'] }}&nbsp;</p><p>Address : {{ $user['address'] }}</p><p>Desired course: {{ $user['course'] }}</p><p>Qualification: {{ $user['qualification'] }}</p><p>Thank You</p>
