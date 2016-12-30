@@ -9,6 +9,7 @@ use App\Models\CourseLevel;
 use App\Models\University;
 use App\Models\Course;
 use App\Models\Locations;
+use App\Models\College;
 use App\Social;
 use DB;
 
@@ -39,7 +40,10 @@ class SearchController extends Controller
         $course = Request::get('study_field');
         $type = Request::get('institution_type');
         $courses = Course::query();
-        $courses->join('college_details','college_details.collegeid','like','%,'.cast(' course_details.collegeid ').',%');
+        // $courses->join('college_details', function($cours){
+        //    $cours->on(DB::raw("find_in_set(college_details.collegeid, course_details.college_id)",'college_details.collegeid'));
+        // });
+        $courses->join('college_details','college_details.collegeid','=','course_details.college_id');
         $courses->join('course_level','course_details.level_id','=','course_level.id');
         $courses->join('universities','universities.u_id','=','college_details.uni_id');
         $courses->join('locations','locations.id','=','college_details.location');
@@ -76,10 +80,28 @@ class SearchController extends Controller
     }
 
     function coursedetail($slug){
-
+        $menus = DB::table('menus')->where('parent_id','0')->get();
+        $home = DB::table('generals')->first();
+        $metavalues = DB::table('seos')->first();
+        $sociallink = Social::first();
+        $courselevel = CourseLevel::get();
+        $locations = Locations::get();
+        $types = University::get();
+        $courses = Course::where('slug',$slug)->first();
+        return view('frontend.course.coursedetail',compact('metavalues','slug','menus','home','sociallink','result','locations','types','courses','courselevel'))->withClass('coursedetail');
     }
 
     function collegedetail($slug){
 
+        $menus = DB::table('menus')->where('parent_id','0')->get();
+        $home = DB::table('generals')->first();
+        $metavalues = DB::table('seos')->first();
+        $sociallink = Social::first();
+        $courselevel = CourseLevel::get();
+        $locations = Locations::get();
+        $types = University::get();
+        $college = College::where('slug',$slug)->first();
+        return view('frontend.course.collegedetail',compact('metavalues','slug','menus','home','sociallink','result','locations','types','college','courselevel'))->withClass('college');
+   
     }
 }

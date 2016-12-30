@@ -1008,17 +1008,17 @@ section.main-wrapper.contact {
 .single-new .header-menu li.active a {
     background: rgba(0, 0, 0, 0.7);
 }
-.single-new .sidebar-wrapper {
+.sidebar-wrapper {
     padding: 0;
     background-color: transparent;
 }
-.single-new .sidebar-wrapper aside {
+.sidebar-wrapper aside {
     margin-bottom: 30px;
 }
-.single-new .sidebar-wrapper aside:last-of-type {
+.sidebar-wrapper aside:last-of-type {
     margin: 0;
 }
-.single-new .sidebar-wrapper .sidebar-title {
+.sidebar-wrapper .sidebar-title {
     border: medium none;
     color: #fff;
     background: #0066B2;
@@ -1027,34 +1027,34 @@ section.main-wrapper.contact {
     margin: 0;
     padding: 10px 15px;
 }
-.single-new .sidebar-wrapper .text-list li a {
+.sidebar-wrapper .text-list li a {
     display: block;
     border-bottom: 1px solid;
     padding: 10px 0;
 }
-.single-new .sidebar-wrapper .more-button a {
+.sidebar-wrapper .more-button a {
     float: right;
     color: #a2b8c3;
 }
-.single-new .sidebar-wrapper .event-aside .more-button a {
+.sidebar-wrapper .event-aside .more-button a {
     float: left;
 }
-.single-new .sidebar-wrapper .more-button a:hover {
+.sidebar-wrapper .more-button a:hover {
     color: #0066b2;
 }
-.single-new .sidebar-wrapper .more-button .right-arrow {
+.sidebar-wrapper .more-button .right-arrow {
     float: left;
     margin-right: 8px;
 }
-.single-new .sidebar-wrapper .media {
+.sidebar-wrapper .media {
     margin-top: 35px;
     border-bottom: medium none;
 }
-.single-new .sidebar-wrapper .media-left {
+.sidebar-wrapper .media-left {
     height: 180px;
     width: 180px;
 }
-.single-new .sidebar-wrapper .media-heading {
+.sidebar-wrapper .media-heading {
     font-size: 20px;
     line-height: 25px;
     text-transform: capitalize;
@@ -1522,4 +1522,55 @@ section.main-wrapper.register-form .formwrapper label.error,
 }
 .search-list-wrap .search-items .course-detail-wrap {
     margin-bottom: 15px;
+}
+
+.course-detail{
+    padding-bottom: 60px;
+}
+.course-detail h3{
+    color: #0066b2;
+}
+.table-glance > thead > tr > th {
+  border-bottom: medium none;
+}
+.table-glance th{
+  font-weight: normal;
+
+}
+.table-glance td {
+  color: #2581bf;
+  font-weight: 800;
+}
+.subject-list li {
+  border-bottom: 1px dotted #2581bf;
+  color: #2581bf;
+  font-weight: normal;
+  padding:10px;
+}
+.subject-list li:nth-child(2n) {
+  background: #eaf7ff none repeat scroll 0 0;
+}
+.subject-list li:last-child {
+  border-bottom: medium none;
+}
+.course-detail .nav-tabs {
+  border-bottom: 1px solid #2581bf;
+  margin-bottom: 15px;
+}
+.course-detail .nav > li > a {
+  -moz-border-bottom-colors: none ;
+  -moz-border-left-colors: none ;
+  -moz-border-right-colors: none ;
+  -moz-border-top-colors: none ;
+  border-color: #2581bf #2581bf -moz-use-text-color;
+  border-image: none ;
+  border-radius: 0;
+  border-style: solid solid none ;
+  border-width: 1px 1px medium ;
+  color: #2581bf;
+  display: block;
+  font-weight: bold;
+  padding: 15px 20px;
+  position: relative;
+  margin-right: 10px;
 }

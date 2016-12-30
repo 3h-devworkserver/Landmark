@@ -122,6 +122,8 @@ $inputs = Input::all();
                         {
                             $hfilename = '';
                         }
+                        $slug = str_replace(' ', '-', strtolower( $title ) );
+                        $newslug = preg_replace('/[^A-Za-z0-9\-]/', '', $slug); 
                         College::create([
                                 'college_name' => $title,
                                 'uni_id' => $uid,
@@ -134,7 +136,7 @@ $inputs = Input::all();
                                 'url' => $url,
                                 'location' => $location,
                                 'contact' => $contact,
-                                'slug' => str_replace(' ', '-', strtolower( $title ) ),
+                                'slug' => $newslug,
                                 ]);
                     }
                     return redirect('admin/college');
@@ -228,6 +230,8 @@ $inputs = Input::all();
                         {
                             $headername = $filenames->header_image;
                         }
+                        $slug = str_replace(' ', '-', strtolower( $title ) );
+                        $newslug = preg_replace('/[^A-Za-z0-9\-]/', '', $slug); 
                      DB::table('college_details')
                         ->where('collegeid', $id)
                         ->update([
@@ -242,7 +246,7 @@ $inputs = Input::all();
                                 'url' => $url,
                                 'location' => $location,
                                 'contact' => $contact,
-                                'slug' => str_replace(' ', '-', strtolower( $title ) ),
+                                'slug' => $newslug,
                             ]);
                 return Redirect::to('admin/college');
             }

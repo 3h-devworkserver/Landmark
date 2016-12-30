@@ -98,7 +98,7 @@ Country Edit
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
 						@if($course->header_image != '')
-						<div class="bg-img header-img headerimg" style="background-image:url('{{ asset('/img/course/'. $course->header_image) }}');">
+						<div class="header-img headerimg" style="background-image:url('{{ asset('/img/course/'. $course->header_image) }}');">
 							
 						</div>
 						@else

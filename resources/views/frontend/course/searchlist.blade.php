@@ -81,14 +81,14 @@
 		                            <div class="col-md-12">
 		                               <div class="course-detail-wrap">
 			                               	<h3 class="news-heading">
-			                                    <a href="#">
-			                                    <!-- <a href="{{URL::to('/course-australia/'.$r->slug)}}"> -->
+			                                    <!-- <a href="#"> -->
+			                                    <a href="{{URL::to('/course-australia/'.$r->slug)}}">
 			                                        {{ $r->course_name}}
 			                                    </a>
 			                                </h3>
 			                                <p>
-			                                    <a href="#">
-			                                    <!-- <a href="{{URL::to('/college-australia/'.$r->college_slug)}}"> -->
+			                                    <!-- <a href="#"> -->
+			                                    <a href="{{URL::to('/college-australia/'.$r->college_slug)}}">
 			                                        <b>{{ $r->college_name }}</b>
 			                                    </a>
 			                                </p>

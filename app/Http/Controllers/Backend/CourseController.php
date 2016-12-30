@@ -109,7 +109,8 @@ $inputs = Input::all();
                         {
                             $hfilename = '';
                         }
-
+                        $slug = str_replace(' ', '-', strtolower( $title ) );
+                        $newslug = preg_replace('/[^A-Za-z0-9\-]/', '', $slug); 
                             Course::create([
                                 'college_id' => $clz,
                                 'level_id' => $courselevel,
@@ -118,7 +119,7 @@ $inputs = Input::all();
                                 'subjects' => $subjects,
                                 'images' => $filename,
                                 'header_image' => $hfilename,
-                                'slug' => str_replace(' ', '-', strtolower( $title ) ),
+                                'slug' => $newslug,
                                 ]);
                    // foreach( $inputs['counter'] as $key=>$input )
                    // {
@@ -252,6 +253,8 @@ $inputs = Input::all();
                         {
                             $headername = $filenames->header_image;
                         }
+                        $slug = str_replace(' ', '-', strtolower( $title ) );
+                        $newslug = preg_replace('/[^A-Za-z0-9\-]/', '', $slug); 
                      DB::table('course_details')
                         ->where('id', $id)
                         ->update([
@@ -262,7 +265,7 @@ $inputs = Input::all();
                                 'subjects' => $subjects,
                                 'images' => $filename,
                                 'header_image' => $headername,
-                                'slug' => str_replace(' ', '-', strtolower( $title ) ),
+                                'slug' => $newslug,
                               ]);
                 return Redirect::to('admin/course');
             }
