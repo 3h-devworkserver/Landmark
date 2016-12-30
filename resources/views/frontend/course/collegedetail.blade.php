@@ -52,11 +52,11 @@
                         
                     </div>
                   
-                    @if(!empty($courses->location))
                     <?php
                      $instype = DB::table('universities')->where('u_id',$college->uni_id)->first(); 
                      $location = DB::table('locations')->where('id',$college->location)->first(); 
                     ?>
+                    @if(!empty($college->location))
                     <div class="row">
                     	<div class="col-md-12">
                     		<h3>At a glance</h3>
@@ -115,37 +115,32 @@
                     </div>
                     @endif
 				</div>
-
+                <?php
+                 $collegelist = DB::table('college_details')->where('collegeid','!=',$college->collegeid)->get();
+                ?>
+                @if( count($collegelist) > 0 )
 				<div class="col-md-4">
 					<div class="sidebar-wrapper">
-                            
                             <aside>
                                 <h2 class="sidebar-title">Similar Institutions</h2>
+                                @foreach( $collegelist as $key => $list)
                                 <div class="media">
-                                    <div class="media-left bg-image" style="background-image:url('https://s3-ap-southeast-2.amazonaws.com/geg-sia-webapp/images/canberra-institute-of-technology-cit.jpg');"></div>
+                                    @if(!empty($list->images))
+                                    <div class="media-left bg-image" style="background-image:url({{ asset( '/img/college/'.$list->images ) }});"></div>
+                                    @else
+                                    <div class="media-left bg-image" style="background-image:url({{ asset( '/img/noimages.jpg/' ) }});"></div>
+                                    @endif                                      
                                     <div class="media-body">
                                         <a href="#">
-                                            <h4 class="media-heading">Australia Catholic</h4>
+                                            <h4 class="media-heading">{{ $list->college_name }}</h4>
                                         </a>
                                     </div>
                                 </div>
-                                <div class="media">
-                                    <div class="media-left bg-image" style="background-image:url('https://s3-ap-southeast-2.amazonaws.com/geg-sia-webapp/images/canberra-institute-of-technology-cit.jpg');"></div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h4 class="media-heading">Australia Free Information Session on</h4>
-                                        </a>
-                                    
-                                    </div>
-                                </div>
-                               <!--  <div class="more-button">
-                                    <a href="#" class="btn btn-readmore" role="button">
-                                        <i class="fa fa-angle-right"></i>More</a>
-                                </div> -->
+                                @endforeach
                             </aside>
                         </div>
 				</div>
-				
+				@endif
 			</div>
 		</div>
 	</div>

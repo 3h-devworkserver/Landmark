@@ -111,7 +111,7 @@ College Edit
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
 						@if($colleges->header_image != '')
-						<div class="bg-img header-img headerimg" style="background-image:url('{{ asset('/img/college/'. $colleges->header_image) }}');">
+						<div class="header-img headerimg" style="background-image:url('{{ asset('/img/college/'. $colleges->header_image) }}');">
 							
 						</div>
 						@else

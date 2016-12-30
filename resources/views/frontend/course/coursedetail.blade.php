@@ -117,42 +117,37 @@
                     </div>
                     @endif
 				</div>
-
+                <?php
+                 $courselist = DB::table('course_details')->where('id','!=',$courses->id)->get();
+                ?>
+                @if(count($courselist) > 0 )
 				<div class="col-md-4">
 					<div class="sidebar-wrapper">
                             
                             <aside>
                                 <h2 class="sidebar-title">Related Course</h2>
+                                @foreach( $courselist as $key => $list )
                                 <div class="media">
-                                    <div class="media-left bg-image" style="background-image:url('https://s3-ap-southeast-2.amazonaws.com/geg-sia-webapp/images/canberra-institute-of-technology-cit.jpg');"></div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h4 class="media-heading">study in Australia Free Information Session on</h4>
+                                    @if(!empty($list->images))
+                                    <div class="media-left bg-image" style="background-image:url({{ asset( '/img/course/'.$list->images ) }});"></div>
+                                    @else
+                                    <div class="media-left bg-image" style="background-image:url({{ asset( '/img/noimages.jpg/' ) }});"></div>
+                                    @endif                                    <div class="media-body">
+                                        <a href="{{URL::to('/course-australia/'.$list->slug)}}">
+                                            <h4 class="media-heading">
+                                                {{$list->course_name}}</h4>
                                         </a>
-                                        <div class="date">
-                                            25<sup>th</sup> Nov, 2016
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="media">
-                                    <div class="media-left bg-image" style="background-image:url('https://s3-ap-southeast-2.amazonaws.com/geg-sia-webapp/images/canberra-institute-of-technology-cit.jpg');"></div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h4 class="media-heading">study in Australia Free Information Session on</h4>
-                                        </a>
-                                        <div class="date">
-                                            25<sup>th</sup> Nov, 2016
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="more-button">
+                             @endforeach
+                               <!--  <div class="more-button">
                                     <a href="#" class="btn btn-readmore" role="button">
                                         <i class="fa fa-angle-right"></i>More</a>
-                                </div>
+                                </div> -->
                             </aside>
                         </div>
 				</div>
-				
+				@endif
 			</div>
 		</div>
 	</div>
