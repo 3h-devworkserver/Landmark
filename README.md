@@ -1,4 +1,2 @@
 # Landmark
-Landmark Project 
- this is test message.
- Changed
+This project is related with the australian college class preparation and details of their facilities. 
