@@ -39,7 +39,7 @@ class SearchController extends Controller
         $course = Request::get('study_field');
         $type = Request::get('institution_type');
         $courses = Course::query();
-        $courses->join('college_details','course_details.college_id','=','college_details.collegeid');
+        $courses->join('college_details','college_details.collegeid','like','%,'.cast(' course_details.collegeid ').',%');
         $courses->join('course_level','course_details.level_id','=','course_level.id');
         $courses->join('universities','universities.u_id','=','college_details.uni_id');
         $courses->join('locations','locations.id','=','college_details.location');
