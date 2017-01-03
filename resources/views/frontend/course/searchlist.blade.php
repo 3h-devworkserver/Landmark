@@ -107,7 +107,7 @@
 		                                </p>
 		                            </div>
 		                            <div class="col-md-2">
-		                            	@if($r->cimages)
+		                            	@if($r->images)
 										<a class="btn btn-outline btn-block" href="javascript:;" data-img="{{ asset('img/course/'.$r->images ) }}" data-url="{{URL::to('/course-australia/'.$r->slug)}}" data-course="{{ $r->course_name}}" id="enquirenow">
 										@else
 										<a class="btn btn-outline btn-block" href="javascript:;" data-img="{{ asset('img/noimages.jpg' ) }}" data-url="{{URL::to('/course-australia/'.$r->slug)}}" data-course="{{ $r->course_name}}" id="enquirenow">

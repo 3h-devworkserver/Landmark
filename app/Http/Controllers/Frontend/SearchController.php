@@ -120,9 +120,9 @@ class SearchController extends Controller
         parse_str($_POST['source'], $user);
 
         Mail::send('frontend.course.enquiry', ['user' => $user, 'logo' => $home], function ($m) use ($user) {
-            $m->from('lakshya@3hammers.com', 'Test');
+            $m->from($user['email'], 'Enquiry Information');
 
-            $m->to( $user['email'] )->subject('Test');
+            $m->to( 'info@landmark.edu.np' )->subject('Enquiry Information');
         });
     }
 }
