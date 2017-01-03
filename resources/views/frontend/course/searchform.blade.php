@@ -8,7 +8,7 @@
 				<div class="col-sm-5 col-md-5">
 						{!! Form::text('keyword', '' ,['class' => 'form-control','placeholder' => 'Keywords'] ) !!}
 				</div>
-				<div class="col-sm-2 col-md-2">
+				<div class="col-sm-3 col-md-2">
 						<select name="location" id="location" class="form-control" placeholder="Choose Location">
 							<option value="">Location</option>
 							@foreach( $locations as $key=>$location)
@@ -16,7 +16,7 @@
 							@endforeach
 						</select>
 				</div>
-				<div class="col-sm-2 col-md-3">
+				<div class="col-sm-4 col-md-3">
 						<select name="level" id="level" class="form-control" placeholder="Choose Course Level">
 							<option value="">Course Level</option>
 							@foreach( $courselevel as $key=>$course)
@@ -24,7 +24,7 @@
 							@endforeach
 						</select>
 				</div>
-				<div class="col-md-2 hidden-xs hidden-sm">
+				<div class="col-sm-1 col-md-2 hidden-xs hidden-sm">
 						<button class="btn btn-outline btn-block">
 						search
 						</button>
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="row" id="more-options-slide">
-				<div class="col-md-6">
+				<div class="col-md-6 col-sm-6">
 					<select id="study-field" class="form-control" name="study_field">
 						<option value="">Courses</option>
 						@foreach( $courses as $key=>$cours)
@@ -40,7 +40,7 @@
 						@endforeach
 					</select>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 col-sm-6">
 					<select id="institution-type" class="form-control" name="institution_type">
 						<option value="">Institution Type</option>
 						@foreach( $types as $key=>$type)

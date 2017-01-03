@@ -6,7 +6,7 @@
         @if(!empty($college->header_image))
         <div class="page-style-1 bg-image" style="background-image:url({{ asset( '/img/college/'.$college->header_image ) }});">
 		@else
-        <div class="page-style-1 bg-image" style="background-color:#0066B1;">
+        <div class="page-style-1" style="background-color:#0066B1;">
         @endif    
             <div class="container">
                 <div class="row">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-8 col-sm-8">
 					<div class="course-detail-wrap">
 						<h3 class="news-heading">
 								{{ $college->college_name }}
@@ -119,7 +119,7 @@
                  $collegelist = DB::table('college_details')->where('collegeid','!=',$college->collegeid)->get();
                 ?>
                 @if( count($collegelist) > 0 )
-				<div class="col-md-4">
+				<div class="col-md-4 col-sm-4">
 					<div class="sidebar-wrapper">
                             <aside>
                                 <h2 class="sidebar-title">Similar Institutions</h2>

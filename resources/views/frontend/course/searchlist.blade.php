@@ -6,10 +6,10 @@
 			
 			{!! Form::open( array( 'route'=> 'course.search.list','files' => true,'accept-charset'=>'UTF-8','method'=>'GET', 'class'=>'' ) ) !!}
 			<div class="row">
-				<div class="col-sm-3 col-md-3">
+				<div class="col-sm-4 col-md-2">
 						{!! Form::text('keyword', isset($_GET['keyword']) ? $_GET['keyword'] : '' ,['class' => 'form-control','placeholder' => 'Keywords'] ) !!}
 				</div>
-				<div class="col-sm-2 col-md-2">
+				<div class="col-sm-4 col-md-2">
 						<select name="location" id="location" class="form-control" placeholder="Choose Location">
 							<option value="">Location</option>
 							@foreach( $locations as $key=>$location)
@@ -17,7 +17,7 @@
 							@endforeach
 						</select>
 				</div>
-				<div class="col-sm-2 col-md-2">
+				<div class="col-sm-4 col-md-2">
 						<select name="level" id="level" class="form-control" placeholder="Choose Course Level">
 							<option value="">Course Level</option>
 							@foreach( $courselevel as $key=>$course)
@@ -25,7 +25,7 @@
 							@endforeach
 						</select>
 				</div>
-					<div class="col-md-2 col-sm-2">
+					<div class="col-sm-4 col-md-2">
 					<select id="study-field" class="form-control" name="study_field">
 						<option value="">Courses</option>
 						@foreach( $courses as $key=>$cours)
@@ -33,7 +33,7 @@
 						@endforeach
 					</select>
 				</div>
-				<div class="col-md-2 col-sm-2">
+				<div class="col-sm-4 col-md-2">
 					<select id="institution-type" class="form-control" name="institution_type">
 						<option value="">Institution Type</option>
 						@foreach( $types as $key=>$type)
@@ -41,9 +41,9 @@
 						@endforeach
 					</select>
 				</div>
-				<div class="col-md-1 col-sm-1">
+				<div class="col-sm-4 col-md-2">
 					<div class="form-group">
-						<button class="btn btn-outline">
+						<button class="btn btn-outline btn-block">
 						search
 						</button>
 					</div>
@@ -67,16 +67,18 @@
 				@foreach( $result as $r)
 				<div class="row">
 					<div class="search-items">
-						<div class="col-md-2 col-sm-2">
-							<div class="image-wrap">
-							@if($r->cimages)
-							<img class="course-img" src="{{ asset('img/college/'.$r->cimages ) }}" alt="">
+						<div class="col-md-2 col-sm-3">
+							<!-- <div class="image-wrap"> -->
+							@if($r->images)
+							<div class="course-img bg-image" style="background-image:url({{ asset('img/course/'.$r->images ) }})"></div>
+							<!-- <img class="course-img" src="{{ asset('img/course/'.$r->images ) }}" alt=""> -->
 							@else
-							<img class="course-img" src="{{ asset('img/noimages.jpg' ) }}" alt="">
+							<!-- <img class="course-img" src="{{ asset('img/noimages.jpg' ) }}" alt=""> -->
+							<div class="course-img bg-image" style="background-image:url({{ asset('img/noimages.jpg' ) }})"></div>
 							@endif
-							</div>
+							<!-- </div> -->
 						</div>
-						<div class="col-md-10 col-sm-10">
+						<div class="col-md-10 col-sm-9">
 							<div class="row row-padding-10">
 		                            <div class="col-md-12">
 		                               <div class="course-detail-wrap">
@@ -86,12 +88,11 @@
 			                                        {{ $r->course_name}}
 			                                    </a>
 			                                </h3>
-			                                <p>
-			                                    <!-- <a href="#"> -->
+			                               <!--  <p>
 			                                    <a href="{{URL::to('/college-australia/'.$r->college_slug)}}">
 			                                        <b>{{ $r->college_name }}</b>
 			                                    </a>
-			                                </p>
+			                                </p> -->
 		                            	</div>
 		                            </div>
 		                            <div class="col-md-5">
@@ -106,9 +107,12 @@
 		                                </p>
 		                            </div>
 		                            <div class="col-md-2">
-										<a class="btn btn-outline btn-block" href="javascript:;">
+		                            	@if($r->cimages)
+										<a class="btn btn-outline btn-block" href="javascript:;" data-img="{{ asset('img/course/'.$r->images ) }}" data-url="{{URL::to('/course-australia/'.$r->slug)}}" data-course="{{ $r->course_name}}" id="enquirenow">
+										@else
+										<a class="btn btn-outline btn-block" href="javascript:;" data-img="{{ asset('img/noimages.jpg' ) }}" data-url="{{URL::to('/course-australia/'.$r->slug)}}" data-course="{{ $r->course_name}}" id="enquirenow">
+		                                @endif    
 		                                    Enquire now
-		                                    <!-- <span class="fa fa-angle-right" aria-hidden="true"></span> -->
 		                                </a>
 		                          
 		                            </div>
@@ -128,5 +132,10 @@
 
 		</div>
 	</div>
-</section>			
+</section>	
+
+<section class="popupform">
+	
+</section>		
+
 @stop

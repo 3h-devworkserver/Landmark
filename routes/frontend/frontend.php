@@ -14,7 +14,11 @@ Route::post('/newsform/submit','Frontend\FrontendController@newssubmit');
 Route::get('/country/{url}','Frontend\CountryController@index');
 Route::get('/country/australia/{url}','Frontend\CountryController@show');
 Route::get('/section/australia/{url}','Frontend\CountryController@show_section');
+
+//------course section----------//
 Route::get('/course/searchform',['as' => 'course.search','uses' => 'Frontend\SearchController@index']);
 Route::get('/course/search-list',['as' => 'course.search.list','uses' => 'Frontend\SearchController@show']);
 Route::get('/course-australia/{slug}',['as' => 'course.detail','uses' => 'Frontend\SearchController@coursedetail']);
 Route::get('/college-australia/{slug}',['as' => 'college.detail','uses' => 'Frontend\SearchController@collegedetail']);
+Route::post('/enquiry/popup',['as' => 'enquiry','uses' => 'Frontend\SearchController@enquiry_form']);
+Route::post('/enquiry/submit',['as' => 'enquiry.submit','uses' => 'Frontend\SearchController@enquiry_submit']);

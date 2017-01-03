@@ -675,7 +675,10 @@ section.main-wrapper {
 }
 section.main-wrapper.news,
 section.main-wrapper.contact,
-section.main-wrapper.single {
+section.main-wrapper.single,
+.search .main-wrapper,
+.coursedetail .main-wrapper,
+.search-list .main-wrapper{
     margin-top: 70px;
 }
 .page-title {
@@ -1468,6 +1471,15 @@ section.main-wrapper.register-form .formwrapper label.error,
     padding: 100px 0;
     background: #f5f5f5;
 }
+.search-page-wrapper .form-control,
+.popupform .modal .form-control{
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-width: 2px;
+    border-color: #a2b8c3;
+    height: 40px;
+}
 .search-page-wrapper [class*="col-"],
 .search-page-wrapper [class^="col-"] {
     padding-left: 5px;
@@ -1501,19 +1513,27 @@ section.main-wrapper.register-form .formwrapper label.error,
     margin-bottom: 25px;
     padding-bottom: 25px;
 }
-.search-list-wrap .search-items .image-wrap {
+.search-list-wrap .search-items .bg-image,
+.search-list .bg-image{
+    min-height: 120px;
+}
+.search-list-wrap .search-items .image-wrap,
+.image-wrap {
     border: 1px solid #dcdcdc;
     height: 150px;
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
 }
-.search-list-wrap .search-items .image-wrap:before {
+.search-list-wrap .search-items .image-wrap:before,
+.image-wrap:before {
     content: "";
     display: inline-block;
     height: 100%;
     vertical-align: middle;
 }
-.search-list-wrap .search-items .course-img {
+.search-list-wrap .search-items .course-img,
+.image-wrap img{
     max-height: 150px;
 }
 .search-list-wrap .search-items h3 {
@@ -1546,12 +1566,25 @@ section.main-wrapper.register-form .formwrapper label.error,
   color: #2581bf;
   font-weight: normal;
   padding:10px;
+  background: #eaf7ff;
 }
 .subject-list li:nth-child(2n) {
-  background: #eaf7ff none repeat scroll 0 0;
+    background: #fff;
 }
 .subject-list li:last-child {
   border-bottom: medium none;
+}
+.coursedetail .bg-image,
+.college .bg-image{
+    min-height: 120px;
+}
+.coursedetail .description .level{
+    margin-bottom: 10px;
+    font-weight: 600;
+    color:#0066B2;
+}
+.coursedetail .description .level i{
+    margin-right: 8px;
 }
 .course-detail .nav-tabs {
   border-bottom: 1px solid #2581bf;
@@ -1573,4 +1606,56 @@ section.main-wrapper.register-form .formwrapper label.error,
   padding: 15px 20px;
   position: relative;
   margin-right: 10px;
+}
+.coursedetail .sidebar-wrapper .media-left,
+.college .sidebar-wrapper .media-left {
+  height: 100px;
+  width: 120px;
+  padding: 0;
+}
+.coursedetail .sidebar-wrapper .image-wrap{
+    height: 100px;
+}
+.coursedetail .sidebar-wrapper .image-wrap img{
+    max-height: 70px;
+}
+.popupform .modal-dialog{
+    width: 900px;
+
+}
+.popupform .modal-body{
+    background: #fbfbfb;
+
+}
+
+.popupform .modal-body textarea.form-control{
+    height: 120px;
+}
+.popupform .modal-dialog .checkbox{
+    margin-bottom: 0;
+}
+.popupform .modal-footer {
+  background: #e5e5e5;
+  border-top: 1px solid #bdbdbd;
+}
+.popupform .modal-header {
+  background: #0066b2 none repeat scroll 0 0;
+  border-bottom: 1px solid #0066b2;
+  color: #fff;
+}
+.popupform .modal-header .modal-title{
+    font-size: 20px;
+}
+.popupform label{
+    font-weight: normal;
+    font-size: 15px;
+}
+.popupform label em{
+  color: #ff6160;
+    
+}
+.popupform label.error {
+  color: #ff6160;
+  font-size: 14px;
+  margin: 0;
 }

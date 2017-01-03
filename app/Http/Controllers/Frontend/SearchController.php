@@ -12,6 +12,8 @@ use App\Models\Locations;
 use App\Models\College;
 use App\Social;
 use DB;
+use View;
+use Mail;
 
 class SearchController extends Controller
 {
@@ -79,7 +81,7 @@ class SearchController extends Controller
         return view('frontend.course.searchlist',compact('metavalues','slug','menus','home','sociallink','result','locations','types','courses','courselevel'))->withClass('search-list');
     }
 
-    function coursedetail($slug){
+    public function coursedetail($slug){
         $menus = DB::table('menus')->where('parent_id','0')->get();
         $home = DB::table('generals')->first();
         $metavalues = DB::table('seos')->first();
@@ -91,7 +93,7 @@ class SearchController extends Controller
         return view('frontend.course.coursedetail',compact('metavalues','slug','menus','home','sociallink','result','locations','types','courses','courselevel'))->withClass('coursedetail');
     }
 
-    function collegedetail($slug){
+    public function collegedetail($slug){
 
         $menus = DB::table('menus')->where('parent_id','0')->get();
         $home = DB::table('generals')->first();
@@ -103,5 +105,24 @@ class SearchController extends Controller
         $college = College::where('slug',$slug)->first();
         return view('frontend.course.collegedetail',compact('metavalues','slug','menus','home','sociallink','result','locations','types','college','courselevel'))->withClass('college');
    
+    }
+
+    public function enquiry_form(){
+    $view = View::make('frontend.course.queryform',['url' => $_POST['courseurl'], 'course' =>$_POST['coursename'], 'image' => $_POST['image'] ]);
+    $contents = $view->render();
+    return $contents;
+
+    }
+
+    public function enquiry_submit(Request $request)
+    {
+        $home = DB::table('generals')->first();
+        parse_str($_POST['source'], $user);
+
+        Mail::send('frontend.course.enquiry', ['user' => $user, 'logo' => $home], function ($m) use ($user) {
+            $m->from('lakshya@3hammers.com', 'Test');
+
+            $m->to( $user['email'] )->subject('Test');
+        });
     }
 }

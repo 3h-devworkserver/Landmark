@@ -5,7 +5,7 @@
 	<div class="row">
 		 <div class="col-md-12 col-sm-12">
       <div class="formwrapper">
-                        <form method="post" action="javascript:;" name="eventform" id="eventform">
+                        <form method="post" action="javascript:;" name="eventform" id="eventform" novalidate="novalidate">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="form-group">
                             <label>Name<span>*</span></label>
@@ -32,7 +32,7 @@
                                 <label>Qualification<span>*</span></label>
                                 <input type="text" name="qualification" id="" cols="30" rows="10"  class="form-control required qualification" placeholder="Enter Qualification" />
                             </div>
-                          <input type="submit" class="btn btn-default" value="Submit">
+                          <input type="submit" class="btn btn-outline" value="Submit">
                           <img src="{{ asset('/img/loading.gif') }}" id="imgloader" style="display:none;" height="20" width="20">
                         </form>
                       </div>

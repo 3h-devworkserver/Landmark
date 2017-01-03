@@ -57,7 +57,7 @@
 <!--     <link rel="stylesheet" href="{{asset('/assets/css/font-awesome.min.css')}}"/> 
  -->    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/> 
     <link rel="stylesheet" href="{{asset('/assets/fonts/bebas/stylesheet.css')}}"/>   
-    
+    <link href="{{ asset('/plugins/datepicker/datepicker3.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{asset('/assets/css/owl.carousel.css')}}" />
     <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('/assets/css/responsive.css')}}" />
@@ -87,6 +87,7 @@
 <script>window.jQuery || document.write("<script src='assets/js/jquery.min.js'>\x3C/script>")</script>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+<script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
 <script src="{{asset('/assets/js/jquery.validate.min.js')}}"></script>
 <script src="{{asset('/assets/js/TweenMax.min.js')}}"></script>
 <script src="{{asset('/assets/js/bootstrap.min.js')}}"></script>
@@ -101,6 +102,7 @@
             var winx = ( win/2 - 15 );
             $('#forth .box-wrap.animateme:first').attr('data-translatex',winx)
             $('#forth .box-wrap.animateme:nth-child(2)').attr('data-translatex',(-winx))
+            
     })
 </script>
 </body>

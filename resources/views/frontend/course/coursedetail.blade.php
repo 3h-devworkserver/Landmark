@@ -6,7 +6,7 @@
         @if(!empty($courses->header_image))
         <div class="page-style-1 bg-image" style="background-image:url({{ asset( '/img/course/'.$courses->header_image ) }});">
 		@else
-        <div class="page-style-1 bg-image" style="background-color:#0066B1;">
+        <div class="page-style-1" style="background-color:#0066B1;">
         @endif    
             <div class="container">
                 <div class="row">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-8 col-sm-8">
 					<div class="course-detail-wrap">
 						<h3 class="news-heading">
 								{{ $courses->course_name }}
@@ -37,19 +37,31 @@
 					<hr>
 					<div class="row">
                         <div class="col-md-3">
+
                             
                             @if(!empty($courses->images))
-                            <img class="logo" src="{{ asset( '/img/course/'.$courses->images ) }}" alt="{{ $courses->course_name }}">
+                            <div class="bg-image" style="background-image:url({{ asset( '/img/course/'.$courses->images ) }});">
+                                <!-- <img class="logo" src="{{ asset( '/img/course/'.$courses->images ) }}" alt="{{ $courses->course_name }}"> -->
+                             </div>
+                            
                             @else
-                            <img class="logo" src="{{ asset( '/img/noimages.jpg/') }}" alt="">
+                             <div class="bg-image" style="background-image:url({{ asset( '/img/noimages.jpg/') }});">
+                                 
+                             </div>
+                           
                             @endif
                           </div>
                         <div class="col-md-9 description">
+                            @if(!empty($courses->level_id))
+                                <?php $level = DB::table('course_level')->where('id',$courses->level_id)->first();?>
+                                <div class="level"><i class="fa fa-tag"></i>{{ $level->title }}</div>
+                                @endif
                             {!! $courses->course_detail !!}                    
                         </div>
                         
                         
                     </div>
+                    <hr>
                       <div class="row">
                         <div class="col-md-12">
                             <h3>List of Colleges</h3>
@@ -62,28 +74,7 @@
                             </ul>
                         </div>
                     </div>
-                    @if(!empty($courses->level_id))
-                    <div class="row">
-                    	<div class="col-md-12">
-                    		<h3>At a glance</h3>
-                    		<div class="table-responsive">
-	                    		<table class="table table-glance">
-			                        <tbody>
-			                        	<tr>
-			                                <th>Level:</th>
-                                            <?php $level = DB::table('course_level')->where('id',$courses->level_id)->first();?>
-			                                <td class="bold">
-			                                    {{ $level->title }}
-			                                </td>
-			                            </tr>
-			                            <tr>			                      
-									</tbody>
-								</table>
-                    			
-                    		</div>
-                    	</div>
-                    </div>
-                    @endif
+                
                     @if(!empty($courses->subject))
                     <div class="row">
                     	<div class="col-md-12">
@@ -98,7 +89,7 @@
                     @if(count($coursetabs) > 0 )
                     <div class="row mt40">
                     	<div class="col-md-12">
-                    		<div class="margin-25 hidden-sm hidden-xs">
+                    		<div class="margin-25">
                         <ul class="nav nav-tabs" role="tablist">
                             @foreach( $coursetabs as $key => $ctab )
                             <li role="presentation" class="<?php if($key == 0){ echo 'active';}?>">
@@ -121,7 +112,7 @@
                  $courselist = DB::table('course_details')->where('id','!=',$courses->id)->get();
                 ?>
                 @if(count($courselist) > 0 )
-				<div class="col-md-4">
+				<div class="col-md-4 col-sm-4">
 					<div class="sidebar-wrapper">
                             
                             <aside>
@@ -129,10 +120,18 @@
                                 @foreach( $courselist as $key => $list )
                                 <div class="media">
                                     @if(!empty($list->images))
-                                    <div class="media-left bg-image" style="background-image:url({{ asset( '/img/course/'.$list->images ) }});"></div>
+                                    
+                                    <div class="media-left bg-image" style="background-image:url({{ asset( '/img/course/'.$list->images ) }});">
+                                       <!--  <div class="image-wrap">
+                                            <img src="{{ asset( '/img/course/'.$list->images ) }}" alt="">
+                                        </div>-->
+                                    </div>
                                     @else
-                                    <div class="media-left bg-image" style="background-image:url({{ asset( '/img/noimages.jpg/' ) }});"></div>
-                                    @endif                                    <div class="media-body">
+                                    <div class="media-left bg-image" style="background-image:url({{ asset( '/img/noimages.jpg/' ) }});">
+                            
+                                    </div>
+                                    @endif
+                                    <div class="media-body">
                                         <a href="{{URL::to('/course-australia/'.$list->slug)}}">
                                             <h4 class="media-heading">
                                                 {{$list->course_name}}</h4>
