@@ -1,5 +1,13 @@
+function winheight($class){
+        var win = $(window).height();
+        win = (win < 200) ? 350 : win;
+        $('.error .wrapper').height(win);
+}
+
 $(document).ready(function(){ 
 	
+    winheight();
+
     $('form textarea').summernote({
               height:300,
               codemirror: { // codemirror options

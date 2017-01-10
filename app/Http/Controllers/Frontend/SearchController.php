@@ -122,7 +122,7 @@ class SearchController extends Controller
         Mail::send('frontend.course.enquiry', ['user' => $user, 'logo' => $home], function ($m) use ($user) {
             $m->from($user['email'], 'Enquiry Information');
 
-            $m->to( 'info@landmark.edu.np' )->subject('Enquiry Information');
+            $m->to( 'dinesh@3hammers.com' )->subject('Enquiry Information');
         });
     }
 }

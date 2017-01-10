@@ -22,11 +22,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 $router->group([], function () use ($router)
 {
-    // require(__DIR__ . "/routes/frontend/Access.php");
     require(__DIR__ . "/frontend/frontend.php");
-    // require(__DIR__ . "/Routes/Frontend/Guide/Frontend.php");
-    // require(__DIR__ . "/Routes/Frontend/Traveller/Frontend.php");
-    // require(__DIR__ . "/Routes/Frontend/Payment.php");
 });
 //---------------------- For backend -------------------//
 Route::get('/admin', function () {
