@@ -47,10 +47,12 @@ class HomeController extends Controller
       public function page($slug)
     {
         //
+        $page = Page::where('slug', $slug)->first();
         $menus = DB::table('menus')->where('parent_id','0')->get();
         $home = DB::table('generals')->first();
         $pages = Page::select('id','type','slug')->get();
         $metavalues = DB::table('seos')->first();
+        if(!empty($page)){
         foreach($pages as $p){
             if($p->type == 'news' && strpos($slug,$p->type) !== false){
                 $image = Page::select('featured_image')->where('id',$p->id)->first();
@@ -76,6 +78,9 @@ class HomeController extends Controller
                 $sociallink = Social::first();
                 return view('frontend.home.page',compact('metavalues','home','menus','pagedetails','sociallink','slug'))->withClass($slug);
             }
+        }
+    }else{
+        return view('frontend.error.404');
         }
 
     }
