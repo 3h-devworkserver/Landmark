@@ -21,7 +21,6 @@ College List
 							<th>S.N.</th>
 							<th>Title</th>
 							<th>Institution Type</th>
-							<th>Contact</th>
 							<th>Url</th>
 							<th>location</th>
 							<th>course</th>
@@ -42,15 +41,16 @@ College List
 						<tr>
 							<td>  {{ $k }}
 							</td>
-							<td>{{ $page->college_name }}</td>
-							<td>{{ $university->university_name }}</td>
-							<td>{{ $page->contact }}</td>
-							<td>{{ $page->url }}</td>
-							<td>{{ $location->name }}</td>
+							<td>@if(!empty($page->college_name)) {{ $page->college_name }} @endif</td>
+							<td>@if(!empty($university->university_name)) {{ $university->university_name }} @endif</td>
+							<td>@if(!empty($page->url)) {{ $page->url }} @endif</td>
+							<td>@if(!empty($location->name)) {{ $location->name }} @endif</td>
 							<td>
+								@if(!empty($courses))
 								@foreach($courses as $key => $course)
 							 		{{ $course->course_name }} <?php if($key < $count -1 ){ echo ',';} ?>
 								@endforeach
+								@endif
 							</td>
 							<td><a class="btn btn-info btn-sm" href="{{ route('admin.college.edit',['parameter' => $page->collegeid]) }}"><i class="fa fa-pencil"></i> </a>
 								<a class="btn btn-danger btn-sm" href="{{ route('admin.college.delete',['parameter' => $page->collegeid]) }}"><i class="fa fa-trash-o"></i></a></td>

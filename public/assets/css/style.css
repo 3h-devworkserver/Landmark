@@ -1509,9 +1509,38 @@ section.main-wrapper.register-form .formwrapper label.error,
     margin-bottom: 40px;
 }
 .search-list-wrap .search-items {
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 25px;
-    padding-bottom: 25px;
+    border: 1px solid #ccc;
+    margin-top: 25px;
+    padding: 15px 0;
+}
+.search-items a.list-colleges{
+    display: inline-block;
+    margin-top: 10px;
+}
+.search-list-wrap .well{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    position: relative;
+}
+
+.search-list-wrap .well .closepanel {
+    background: transparent none repeat scroll 0 0;
+    border: medium none;
+    font-size: 24px;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
+.search-list-wrap .subject-list li{
+    width: 33%;
+    float: left;
+    border:medium none;
+}
+.search-list-wrap .subject-list li,
+.search-list-wrap .subject-list li:nth-child(2n) {
+    background: none;
+   
 }
 .search-list-wrap .search-items .bg-image,
 .search-list .bg-image{

@@ -8,7 +8,7 @@ College Tab Edit
 	
 		<div class="row">
 		<!-- <div class="panel-heading">Create Static Block</div> -->
-		{!! Form::open( array( 'route'=> array('admin.collegetab.update',$colleges->collegeid),'files' => true,'accept-charset'=>'UTF-8','method'=>'PATCH', 'class'=>'form-horizontal' ) ) !!}
+		{!! Form::open( array( 'route'=> array('admin.collegetab.update',$collegetabs->id),'files' => true,'accept-charset'=>'UTF-8','method'=>'PATCH', 'class'=>'form-horizontal' ) ) !!}
 		<!-- start of main-content -->
 		<div class="col-md-9 col-sm-9">
 			<div class="box">
@@ -18,7 +18,7 @@ College Tab Edit
 						<div class="col-sm-12 col-md-12">
 							<select name="college" id="college" class="form-control" placeholder="Choose college">
 								<option selected disabled style="display:none;">Choose College</option>
-								@foreach( $colleges as $key=>$colleges)
+								@foreach( $colleges as $key=>$college)
 								<option value="{{$college->collegeid}}" <?php if( $college->collegeid == $collegetabs->clz_id ){ echo 'selected'; } ?>>{{ $college->college_name }}</option>
 								@endforeach
 							</select>

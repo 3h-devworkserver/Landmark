@@ -10,6 +10,6 @@ class Locations extends Model
     protected $table = 'locations';
 
      protected $fillable = [
-        'title','slug',
+        'name','slug',
     ];
 }

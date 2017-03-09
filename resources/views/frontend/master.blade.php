@@ -84,7 +84,7 @@
 
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-<script>window.jQuery || document.write("<script src='assets/js/jquery.min.js'>\x3C/script>")</script>
+<script>window.jQuery || document.write("<script src={{asset('/assets/js/jquery.min.js') }}'>\x3C/script>")</script>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
 <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>

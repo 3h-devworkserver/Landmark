@@ -30,7 +30,7 @@ Country Block Create
 			<div class="box">
 				<div class="box-body">
 					<div class="form-group">
-						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 						<div class="col-sm-12 col-md-12">
 							{!! Form::text('title[]', '' ,['class' => 'form-control'] ) !!}
 						</div>
@@ -42,7 +42,7 @@ Country Block Create
 						</div>
 					</div>
 						<div class="form-group">
-						{!! Form::label('country','Country',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('country','Country',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 						<div class="col-sm-12 col-md-12">
 							<select name="country" id="countries" class="form-control">
 								<option></option>
@@ -157,7 +157,7 @@ Country Block Create
 		<div class="box">
 				<div class="box-body">
 					<div class="form-group">
-						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 						<div class="col-sm-12 col-md-12">
 							{!! Form::text('title[]', '' ,['class' => 'form-control'] ) !!}
 						</div>

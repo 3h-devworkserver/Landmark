@@ -26,7 +26,7 @@
 			<div class="box-body">
 				<input type="hidden" class="counter" name="counter[]" value="0">
 				<div class="form-group">
-					{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+					{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 					<div class="col-sm-12 col-md-12">
 						{!! Form::text('title', '' ,['class' => 'form-control'] ) !!}
 					</div>

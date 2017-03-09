@@ -81,13 +81,9 @@ $(document).ready(function(){
                          }
             })
         }
-        
-
     })
 
 //-----------static add more --------------//
-//$('.staticform').find('select').chosen()
-
  $(document).on('click','.addmoreblock',function(){
        clicks++;
         $('.addstatic .counter').val(clicks)
@@ -106,6 +102,17 @@ $(document).ready(function(){
                          }
             })
         }
+ })
+
+//-----------Location add more --------------//
+ $(document).on('click','.addlocation',function(){
+       clicks++;
+        $('.locationadd .counter').val(clicks)
+        //$('.add .sliderid').val(clicks)
+        var count = $('.locationadd .counter').val();
+        var html = $('.locationadd').html()
+        $('.location-wrap').append(html)
+       
  })
 
  //-----------add more country------------------------//
@@ -495,7 +502,7 @@ $(document).ready(function(){
                             'background-repeat':'no-repeat',
                             'background-size':'cover',
                             '-webkit-background-size':'cover',
-                            'min-height': '400px',
+                            'min-height': '250px',
                             'background-position':'center'
                         })
                    // $('.inner-wrap.second #bgimg'+id).addClass('slider-image')

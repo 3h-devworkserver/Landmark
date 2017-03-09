@@ -30,13 +30,13 @@ Course Create
 			<div class="box">
 				<div class="box-body">
 					<div class="form-group">
-						{!! Form::label('course','Course Name',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('course','Course Name',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 						<div class="col-sm-12 col-md-12">
-							{!! Form::text('course', '' ,['class' => 'form-control'] ) !!}
+							{!! Form::text('course', '' ,['class' => 'form-control', 'placeholder'=>'Enter course name'] ) !!}
 						</div>
 					</div>
 					<div class="form-group">
-								{!! Form::label('college','College',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+								{!! Form::label('college','College',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 								<div class="col-sm-12 col-md-12">
 									<select name="college[]" id="college" class="form-control" placeholder="Choose College" multiple>
 										<!-- <option></option>  -->
@@ -47,7 +47,7 @@ Course Create
 								</div>
 					</div>
 					<div class="form-group">
-								{!! Form::label('courselevel','Course Level',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+								{!! Form::label('courselevel','Course Level',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 								<div class="col-sm-12 col-md-12">
 									<select name="courselevel" id="courselevel" class="form-control" placeholder="Choose course level">
 										<option></option> 
@@ -75,6 +75,29 @@ Course Create
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-3 right-sidebar">
+			<div class="box">
+				<div class="box-body">
+					<div class="form-group">
+						{!! Form::label('ielts','IELTS Score',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
+						<div class="col-sm-12 col-md-12">
+							{!! Form::text('ielts', '' ,['class' => 'form-control', 'placeholder'=>'5'] ) !!}
+						</div>
+					</div>
+					<div class="form-group">
+						{!! Form::label('scholarship','Scholarship',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
+						<div class="col-sm-12 col-md-12">
+							{!! Form::text('scholarship','',['class' => 'form-control', 'placeholder'=>'10%'] ) !!}
+						</div>
+					</div>
+					<div class="form-group">
+						{!! Form::label('tuition-fee','Tuition Fee',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
+						<div class="col-sm-12 col-md-12">
+							{!! Form::text('fee','',['class' => 'form-control', 'placeholder'=>'$450'] ) !!}
+						</div>
+					</div>
+					
+				</div>
+			</div>
 			<div class="box box-default">
 				<div class="box-header with-border">
 					<h3 class="box-title">
@@ -85,11 +108,12 @@ Course Create
 					</div><!-- /.box-tools -->
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
+					<div class="bg-img" id="bgimg"></div>
+					<p class="help-block">Max image size:1000x1000, less than 2MB</p>
 					<span class="btn btn-default btn-file">
 					<i class="fa fa-folder-open"></i>Upload Image
 					<input type="file" name="upload" onchange="readURL(this,'');" accept="image/*" id="icon-upload" class="icon-upload">
 					</span>
-					<div class="bg-img" id="bgimg"></div>
 				</div>
 			</div>
 			<div class="box box-default">
@@ -102,11 +126,12 @@ Course Create
 					</div><!-- /.box-tools -->
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
+					<div class="headimg"></div>
+					<p class="help-block">Max image size:1300x1000, less than 2MB</p>
 					<span class="btn btn-default btn-file">
 					<i class="fa fa-folder-open"></i>Upload Image
 					<input type="file" name="uploadheader" onchange="readfeatured10(this,'headimg');" accept="image/*" id="icon-uploadheader" class="icon-uploadheader">
 					</span>
-					<div class="headimg"></div>
 				</div>
 			</div>
 		<div class="text-right">
@@ -141,13 +166,13 @@ Course Create
 			<div class="box">
 				<div class="box-body">
 					<div class="form-group">
-						{!! Form::label('course','Course Name',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('course','Course Name',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 						<div class="col-sm-12 col-md-12">
 							{!! Form::text('course[]', '' ,['class' => 'form-control'] ) !!}
 						</div>
 					</div>
 					<div class="form-group">
-								{!! Form::label('college','College',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+								{!! Form::label('college','College',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 								<div class="col-sm-12 col-md-12">
 									<select name="college[][]" id="college" class="form-control" placeholder="Choose College" multiple>
 										<option>Choose College</option>
@@ -159,7 +184,7 @@ Course Create
 							</div>
 					
 					<div class="form-group">
-						{!! Form::label('details','Course Detail',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('details','Course Detail',array('class'=>'col-sm-12 col-md-12 control-lable ')) !!}
 						<div class="col-sm-12 col-md-12">
 							{!! Form::textarea('details[]','',['class' => 'form-control textarea','id' => 'pagedesc'] ) !!}
 						</div>
@@ -179,11 +204,12 @@ Course Create
 					</div><!-- /.box-tools -->
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
+					<div class="bgimg" id="bgimg"></div>
+					<p class="help-block">Max image size:1000x1000, less than 2MB</p>
 					<span class="btn btn-default btn-file">
 					<i class="fa fa-folder-open"></i>Upload Image
 					<input type="file" name="upload[]" onchange="" accept="image/*" class="icon-upload" id="icon-upload">
 					</span>
-					<div class="bgimg" id="bgimg"></div>
 				</div>
 			</div>
 			<div class="box box-default">
@@ -196,11 +222,12 @@ Course Create
 					</div><!-- /.box-tools -->
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block headerimg">
+					<div class="headerimg" id="headerimg"></div>
+					<p class="help-block">Max image size:1300x1000, less than 2MB</p>
 					<span class="btn btn-default btn-file">
 					<i class="fa fa-folder-open"></i>Upload Image
 					<input type="file" name="uploadheader[]" onchange="" accept="image/*" class="icon-uploadheader" id="icon-uploadheader">
 					</span>
-					<div class="headerimg" id="headerimg"></div>
 				</div>
 			</div>
 		

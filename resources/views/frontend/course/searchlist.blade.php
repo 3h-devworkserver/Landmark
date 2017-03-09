@@ -64,7 +64,8 @@
 									<p>There are <b><?php echo count($result);?> university courses</b> related to search.</p>
 					</div>
 			</div>
-				@foreach( $result as $r)
+				@foreach( $result as $key => $r)
+
 				<div class="row">
 					<div class="search-items">
 						<div class="col-md-2 col-sm-3">
@@ -98,7 +99,10 @@
 		                            <div class="col-md-5">
 		                                    <p>Type of Institution: 
 		                                    <b>{{ $r->university_name }}</b>
-		                                </p>
+		                                	</p>
+		                                	<a class="list-colleges" role="button" data-toggle="collapse" href="#college-list{{$key}}" aria-expanded="false" aria-controls="collapseExample">
+		                                		List of College <i class="fa fa-angle-down"></i> 
+		                                	</a>
 		                            </div>
 		                            <div class="col-md-5">
 		                                <p>Level: <b>{{ $r->title }}</b></p>
@@ -119,7 +123,20 @@
 		                        </div>
 						</div>
 					</div>
+					<div id="college-list{{$key}}" class="collapse" aria-expanded="true" style="">
+						<div class="well">
+							<button id="closepanel1" class="closepanel">×</button>
+						<?php $clzid = explode(',', $r->college_id); ?>
+			                <ul class="subject-list list-unstyled">
+	                                @foreach( $clzid as $key => $cid)
+	                                <?php $clzname = DB::table('college_details')->where('collegeid',$cid)->first();?>
+	                                <li><a href="{{ URL::to('/college-australia/'.$clzname->slug)}}" alt=""><i class="fa fa-angle-right"></i> &nbsp;{{ $clzname->college_name }}</a></li>
+	                                @endforeach
+	                        </ul>
+	                    </div>
+					</div>
 				</div>
+
 				@endforeach
 				{!! $result->appends(['keyword'=>$_GET['keyword'],'location' => $_GET['location'],'level' => $_GET['level'],'study_field'=>$_GET['study_field'],'institution_type' =>$_GET['institution_type'] ])->render() !!}
 				@else

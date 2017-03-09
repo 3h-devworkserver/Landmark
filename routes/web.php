@@ -237,3 +237,11 @@ Route::post('admin/coursetab/store', ['as' => 'admin.coursetab.store','uses' => 
 Route::get('admin/coursetab/edit/{id}', ['as' => 'admin.coursetab.edit','uses' => 'Backend\CourseController@edittab']);
 Route::patch('admin/coursetab/update/{id}', ['as' => 'admin.coursetab.update','uses' => 'Backend\CourseController@updatetab']);
 Route::get('admin/coursetab/delete/{id}', ['as' => 'admin.coursetab.delete','uses' => 'Backend\CourseController@destroytab']);
+
+//------------------Location Management-------------//
+Route::get('admin/location', ['as' => 'location','uses' => 'Backend\LocationController@index']);
+Route::get('admin/location/create', ['as' => 'admin.location.create','uses' => 'Backend\LocationController@create']);
+Route::post('admin/location/store', ['as' => 'admin.location.store','uses' => 'Backend\LocationController@store']);
+Route::get('admin/location/edit/{id}', ['as' => 'admin.location.edit','uses' => 'Backend\LocationController@edit']);
+Route::patch('admin/location/update/{id}', ['as' => 'admin.location.update','uses' => 'Backend\LocationController@update']);
+Route::get('admin/location/delete/{id}', ['as' => 'admin.location.delete','uses' => 'Backend\LocationController@destroy']);

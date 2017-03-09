@@ -68,7 +68,7 @@ class SearchController extends Controller
 
             $courses->where('college_details.uni_id', '=', $type);
         }
-        $result = $courses->paginate(20);
+        $result = $courses->orderBy('course_name', 'asc')->paginate(20);
         $slug = '';
         $menus = DB::table('menus')->where('parent_id','0')->get();
         $home = DB::table('generals')->first();

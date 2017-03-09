@@ -8,7 +8,7 @@ College Edit
 	
 		<div class="row">
 		<!-- <div class="panel-heading">Create Static Block</div> -->
-		{!! Form::open( array( 'route'=> array('admin.college.update',$colleges->collegeid),'files' => true,'accept-charset'=>'UTF-8','method'=>'PATCH', 'class'=>'form-horizontal' ) ) !!}
+		{!! Form::open( array( 'route'=> array('admin.college.update',$colleges->collegeid),'files' => true,'accept-charset'=>'UTF-8','method'=>'PATCH','class'=>'form-horizontal' ) ) !!}
 		<!-- start of main-content -->
 		<div class="col-md-9 col-sm-9">
 			<div class="box">
@@ -36,17 +36,12 @@ College Edit
 							{!! Form::textarea('content',isset($colleges) ? $colleges->college_detail : '',['class' => 'form-control','id' => 'pagedesc'] ) !!}
 						</div>
 					</div>
-					<div class="form-group">
-						{!! Form::label('contact','Contact Number',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
-						<div class="col-sm-12 col-md-12">
-							{!! Form::text('contact',isset($colleges) ? $colleges->contact :'',['class' => 'form-control'] ) !!}
-						</div>
-					</div>
+			
 					<div class="form-group">
 								{!! Form::label('location','Location',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
 								<div class="col-sm-12 col-md-12">
-									<select name="location[]" id="location" class="form-control" placeholder="Choose Location">
-										<option>Choose Location</option>
+									<select name="location" id="location" class="form-control" placeholder="Choose Location">
+										<option value="">Choose Location</option>
 										@foreach( $locations as $key=>$location)
 										<option value="{{$location->id}}" <?php if($colleges->location == $location->id ){ echo 'selected'; }?>>{{$location->name}}</option>
 										@endforeach
@@ -94,6 +89,7 @@ College Edit
 									@else
 									<div class="bg-img <?php if($colleges->images != ''){ echo  'featured-img';}?>"></div>
 									@endif
+									<p class="help-block">Max image size:1000x1000, less than 2MB</p>
 									<span class="btn btn-default btn-file">
 									<i class="fa fa-folder-open"></i><?php if($colleges->images != ''){ echo  'Change';}else{ echo 'Upload';}?> Image
 									<input type='file' onchange="readfeatured10(this,'bg-img');" class="form-control" name="upload" id="fileimg" />
@@ -117,6 +113,7 @@ College Edit
 						@else
 						<div class="<?php if($colleges->header_image != ''){ echo  'header-img';}?> headerimg"></div>
 						@endif
+						<p class="help-block">Max image size:1300x1000, less than 2MB</p>
 						<span class="btn btn-default btn-file">
 						<i class="fa fa-folder-open"></i><?php if($colleges->header_image != ''){ echo  'Change';}else{ echo 'Upload';}?> Image
 						<input type='file' onchange="readfeatured10(this,'headerimg');" class="form-control" name="uploadheader" id="fileimg" />
@@ -134,7 +131,7 @@ College Edit
 					</div><!-- /.box-tools -->
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
-					{!! Form::text('url', isset($colleges) ? $colleges->url : '' ,['class' => 'form-control'] ) !!}
+					{!! Form::text('url', isset($colleges) ? $colleges->url : '' ,['class' => 'form-control','placeholder'=>'http://www.example.com'] ) !!}
 				</div>
 			</div>
 

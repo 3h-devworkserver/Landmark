@@ -74,6 +74,16 @@
                             </ul>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <hr>
+                        <h3>Course Information</h3>
+                        <ul class="subject-list list-unstyled">
+                        <li><p><b>IELTS: </b>{{ $courses->ielts }}</p></li>
+                        <li><p><b>Scholarship:</b> {{ $courses->scholarship }}</p></li>
+                        <li><p><b>Tuition Fee: </b>{{ $courses->tuitionfee }}</p></li>
+                    </ul>
+                    </div>
                 
                     @if(!empty($courses->subject))
                     <div class="row">

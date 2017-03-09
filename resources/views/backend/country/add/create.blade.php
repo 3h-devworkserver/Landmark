@@ -30,7 +30,7 @@ Country Create
 			<div class="box">
 				<div class="box-body">
 					<div class="form-group">
-						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 						<div class="col-sm-12 col-md-12">
 							{!! Form::text('title[]', '' ,['class' => 'form-control'] ) !!}
 						</div>
@@ -93,7 +93,7 @@ Country Create
 					</div><!-- /.box-tools -->
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
-					{!! Form::text('url[]', '' ,['class' => 'form-control'] ) !!}
+					{!! Form::text('url[]', '' ,['class' => 'form-control','placeholder'=>'http://www.example.com'] ) !!}
 				</div>
 			</div>
  </div>
@@ -131,7 +131,7 @@ Country Create
 			<div class="box">
 				<div class="box-body">
 					<div class="form-group">
-						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 						<div class="col-sm-12 col-md-12">
 							{!! Form::text('title[]', '' ,['class' => 'form-control'] ) !!}
 						</div>
@@ -194,7 +194,7 @@ Country Create
 					</div><!-- /.box-tools -->
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
-					{!! Form::text('url[]', '' ,['class' => 'form-control'] ) !!}
+					{!! Form::text('url[]', '' ,['class' => 'form-control','placeholder'=>'http://www.example.com'] ) !!}
 				</div>
 			</div>
  </div>

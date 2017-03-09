@@ -5,6 +5,13 @@
   /*padding-right: 15px;*/
 }
 
+label.required:after {
+    color: #cc0000;
+    content: "*";
+    font-weight: bold;
+    margin-left: 5px;
+}
+
 .add-page .box-title{
 	font-weight: 600;
 }

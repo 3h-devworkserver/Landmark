@@ -91,7 +91,7 @@ Country Edit
 					</div><!-- /.box-tools -->
 				</div><!-- /.box-header -->
 				<div class="box-body upload-block">
-					{!! Form::text('url', isset($countries) ? $countries->url : '' ,['class' => 'form-control'] ) !!}
+					{!! Form::text('url', isset($countries) ? $countries->url : '' ,['class' => 'form-control','placeholder'=>'http://www.example.com'] ) !!}
 				</div>
 			</div>
 

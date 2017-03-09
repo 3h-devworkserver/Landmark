@@ -109,6 +109,13 @@
                 <a href="javascript:;"><i class='fa fa-file-text-o'></i> <span>{{ trans('Course Management') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li class="treeview">
+                        <a href="javascript:;"><i class='fa fa-map'></i> <span>{{ trans('Locations') }}</span><i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                            <li><a href="{{ url('admin/location') }}"><i class='fa fa-angle-right'></i>{{ trans('All Lists') }}</a></li>
+                            <li><a href="{{ url('admin/location/create') }}"><i class='fa fa-angle-right'></i>{{ trans('Add New') }}</a></li>
+                            </ul>
+                    </li>
+                    <li class="treeview">
                         <a href="javascript:;"><i class='fa fa-list'></i> <span>{{ trans('Institute Type List') }}</span><i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                             <li><a href="{{ url('admin/university') }}"><i class='fa fa-angle-right'></i>{{ trans('All Institute Types') }}</a></li>

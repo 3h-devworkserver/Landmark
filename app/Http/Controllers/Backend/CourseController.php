@@ -61,20 +61,27 @@ class CourseController extends Controller
     {
         //
         $rules = array(
-'course.*' => 'required' ,
+'course' => 'required' ,
 'college' => 'required',
 'courselevel' => 'required',
+'ielts' => 'required',
+'scholarship' => 'required',
+'fee' => 'required',
 );
 $messages = [
-    'course.*' => 'The course name is required.',
+    'course' => 'The course name is required.',
     'college' => 'Please select college.',
     'courselevel' => 'Please select course level.',
+    'ielts' => 'The ielts field is required.',
+    'scholarship' => 'The scholarship field is required.',
+    'fee' => 'The tuition fee field is required.',
 ];
 
 $validator = Validator::make(Input::all(), $rules, $messages);
 if($validator->fails())
 {
 return Redirect::to('admin/course/create')
+->withInput()
 ->withErrors($validator);
 }
 else
@@ -86,6 +93,9 @@ $inputs = Input::all();
                         $courselevel = $inputs['courselevel'];
                         $coursedesc = $inputs['details'];
                         $subjects = $inputs['subjects'];
+                        $ielts = $inputs['ielts'];
+                        $sch = $inputs['scholarship'];
+                        $fee = $inputs['fee'];
                         if(Input::hasFile('upload'))
                         {
                             $file = Input::file('upload');
@@ -120,51 +130,11 @@ $inputs = Input::all();
                                 'images' => $filename,
                                 'header_image' => $hfilename,
                                 'slug' => $newslug,
+                                'ielts' => $ielts,
+                                'scholarship' => $sch,
+                                'tuitionfee' => $fee,
                                 ]);
-                   // foreach( $inputs['counter'] as $key=>$input )
-                   // {
-                   //      $title = $inputs['course'][$key];
-                   //      $cid = $inputs['college'][$key];
-                   //      $coursedesc = $inputs['details'][$key];
-                   //      if(Input::hasFile('upload'))
-                   //      {
-                   //          $file = Input::file('upload');
-                   //          $destinationPath = public_path(). '/img/course/';
-                   //          if( !empty( $file[$key] ) ){
-                   //           $filename = $file[$key]->getClientOriginalName();
-                   //           $file[$key]->move($destinationPath, $filename);
-                   //          }else{
-                   //              $filename = '';
-                   //          }
-                   //      }
-                   //      else
-                   //      {
-                   //          $filename = '';
-                   //      }
-                   //      if(Input::hasFile('uploadheader'))
-                   //      {
-                   //          $hfile = Input::file('uploadheader');
-                   //          $destinationPath = public_path(). '/img/course/';
-                   //          if( !empty( $hfile[$key] ) ){
-                   //           $hfilename = $hfile[$key]->getClientOriginalName();
-                   //           $hfile[$key]->move( $destinationPath, $hfilename );
-                   //          }else{
-                   //              $hfilename = '';
-                   //          }
-                   //      }
-                   //      else
-                   //      {
-                   //          $hfilename = '';
-                   //      }
-                   //      College::create([
-                   //              'college_id' => $cid,
-                   //              'course_name' => $title,
-                   //              'course_detail' => $coursedesc,
-                   //              'images' => $filename,
-                   //              'header_image' => $hfilename,
-                   //              'slug' => str_replace(' ', '-', strtolower( $title ) ),
-                   //              ]);
-                   //  }
+                   
                     return redirect('admin/course');
             }
     }
@@ -210,6 +180,9 @@ $inputs = Input::all();
             'course' => 'required',
             'college' => 'required',
             'courselevel' => 'required',
+            'ielts' => 'required',
+            'scholarship' => 'required',
+            'fee' => 'required',
             );
             $validator = Validator::make(Input::all(), $rules);
             if($validator->fails())
@@ -226,6 +199,9 @@ $inputs = Input::all();
                         $courselevel = $inputs['courselevel'];
                         $coursedesc = $inputs['details'];
                         $subjects = $inputs['subjects'];
+                        $ielts = $inputs['ielts'];
+                        $sch = $inputs['scholarship'];
+                        $fee = $inputs['fee'];
 
                         $filenames = DB::table('course_details')->select('images','header_image')->where('id',$id)->first();
                         if(Input::hasFile('upload'))
@@ -266,6 +242,9 @@ $inputs = Input::all();
                                 'images' => $filename,
                                 'header_image' => $headername,
                                 'slug' => $newslug,
+                                'ielts' => $ielts,
+                                'scholarship' => $sch,
+                                'tuitionfee' => $fee,
                               ]);
                 return Redirect::to('admin/course');
             }
@@ -280,6 +259,7 @@ $inputs = Input::all();
     public function destroy($id)
     {
         //
+        DB::table('course_tabs')->where('course_id', '=', $id)->delete();
         DB::table('course_details')->where('id', '=', $id)->delete();
         return Redirect::to('admin/course');
     }

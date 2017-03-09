@@ -16,6 +16,16 @@
 
  
     $(document).ready(function() {
+        $('.collapse .well').each(function() {
+            var $column = $(this);
+            $("#closepanel1", $column).on("click", function(e) {
+                e.preventDefault();
+                $(this).parent().parent('.collapse').removeClass('in');
+                 return false;
+                //$('.collapse').removeClass('in');
+            });
+        });
+
         
         $('.more-options').click(function(){
             $(this).find('span').toggleClass('fa-angle-right').toggleClass('fa-angle-down');

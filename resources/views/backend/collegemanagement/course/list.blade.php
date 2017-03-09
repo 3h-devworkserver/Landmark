@@ -22,6 +22,9 @@ Courses List
 							<th>Title</th>
 							<th>College</th>
 							<th>Course Level</th>
+							<th>IELTS</th>
+							<th>Scholarship</th>
+							<th>Tuition Fee</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -39,12 +42,18 @@ Courses List
 							<td>  {{ $k }}
 							</td>
 							<td>{{ $page->course_name }}</td>
-							<td>@foreach($ids as $key => $id)
+							<td>
+							@if($ids)	
+								@foreach($ids as $key => $id)
 							 	<?php $college = DB::table('college_details')->where('collegeid',$id)->first(); ?>
 							 		{{ $college->college_name }} <?php if($key < $count -1 ){ echo ',';} ?>
 								@endforeach
+							@endif
 							</td>
-							<td>{{ $level->title }}</td>
+							<td>@if(!empty( $level->title )) {{ $level->title }} @endif</td>
+							<td>@if(!empty( $page->ielts )) {{ $page->ielts }} @endif</td>
+							<td>@if(!empty( $page->scholarship )) {{ $page->scholarship }} @endif</td>
+							<td>@if(!empty( $page->tuitionfee )) {{ $page->tuitionfee }} @endif</td>
 							<td><a class="btn btn-info btn-sm" href="{{ route('admin.course.edit',['parameter' => $page->id]) }}"><i class="fa fa-pencil"></i> </a>
 								<a class="btn btn-danger btn-sm" href="{{ route('admin.course.delete',['parameter' => $page->id]) }}"><i class="fa fa-trash-o"></i></a></td>
 						</tr>

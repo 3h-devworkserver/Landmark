@@ -28,7 +28,7 @@ College Tab Create
 					<div class="box">
 						<div class="box-body">
 							<div class="form-group">
-								{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+								{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 								<div class="col-sm-12 col-md-12">
 									{!! Form::text('title[]', '' ,['class' => 'form-control'] ) !!}
 								</div>
@@ -51,7 +51,7 @@ College Tab Create
 						<div class="box-body">
 							
 							<div class="form-group">
-								{!! Form::label('college','College',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+								{!! Form::label('college','College',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 								<div class="col-sm-12 col-md-12">
 									<select name="college" id="college" class="form-control" placeholder="Choose College">
 										<option value=""></option>
@@ -88,7 +88,7 @@ College Tab Create
 			<div class="box">
 				<div class="box-body">
 					<div class="form-group">
-						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+						{!! Form::label('title','Title',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 						<div class="col-sm-12 col-md-12">
 							{!! Form::text('title[]', '' ,['class' => 'form-control'] ) !!}
 						</div>

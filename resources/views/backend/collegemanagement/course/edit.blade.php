@@ -62,7 +62,29 @@ Country Edit
 
 		<!-- start of sidebar -->
 		 <div class="col-md-3 col-sm-3 right-sidebar">
-		
+			<div class="box">
+				<div class="box-body">
+					<div class="form-group">
+						{!! Form::label('ielts','IELTS Score',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
+						<div class="col-sm-12 col-md-12">
+							{!! Form::text('ielts', isset($course) ? $course->ielts : '' ,['class' => 'form-control', 'placeholder'=>'5'] ) !!}
+						</div>
+					</div>
+					<div class="form-group">
+						{!! Form::label('scholarship','Scholarship',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
+						<div class="col-sm-12 col-md-12">
+							{!! Form::text('scholarship',isset($course) ? $course->scholarship : '',['class' => 'form-control', 'placeholder'=>'10%'] ) !!}
+						</div>
+					</div>
+					<div class="form-group">
+						{!! Form::label('tuition-fee','Tuition Fee',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
+						<div class="col-sm-12 col-md-12">
+							{!! Form::text('fee',isset($course) ? $course->tuitionfee : '',['class' => 'form-control', 'placeholder'=>'$450'] ) !!}
+						</div>
+					</div>
+					
+				</div>
+			</div>
 			<div class="box box-default">
 				<div class="box-header with-border">
 					<h3 class="box-title">
@@ -81,6 +103,7 @@ Country Edit
 									@else
 									<div class="bg-img <?php if($course->images != ''){ echo  'featured-img';}?>"></div>
 									@endif
+									<p class="help-block">Max image size:1000x1000, less than 2MB</p>
 									<span class="btn btn-default btn-file">
 									<i class="fa fa-folder-open"></i><?php if($course->images != ''){ echo  'Change';}else{ echo 'Upload';}?> Image
 									<input type='file' onchange="readfeatured10(this,'bg-img');" class="form-control featured-img" name="upload" id="fileimg" />
@@ -104,6 +127,7 @@ Country Edit
 						@else
 						<div class="<?php if($course->header_image != ''){ echo  'header-img';}?> headerimg"></div>
 						@endif
+						<p class="help-block">Max image size:1300x1000, less than 2MB</p>
 						<span class="btn btn-default btn-file">
 						<i class="fa fa-folder-open"></i><?php if($course->header_image != ''){ echo  'Change';}else{ echo 'Upload';}?> Image
 						<input type='file' onchange="readfeatured10(this,'headerimg');" class="form-control" name="uploadheader" id="fileimg" />

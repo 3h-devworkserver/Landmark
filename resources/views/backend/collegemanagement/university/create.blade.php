@@ -28,7 +28,7 @@ Institute Type Create
 					<div class="box">
 						<div class="box-body">
 							<div class="form-group">
-								{!! Form::label('title','Institute Type',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+								{!! Form::label('title','Institute Type',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 								<div class="col-sm-12 col-md-12">
 									{!! Form::text('title[]', '' ,['class' => 'form-control'] ) !!}
 								</div>
@@ -60,7 +60,7 @@ Institute Type Create
 		<div class="box">
 			<div class="box-body">
 				<div class="form-group">
-					{!! Form::label('title','Institute Type',array('class'=>'col-sm-12 col-md-12 control-lable')) !!}
+					{!! Form::label('title','Institute Type',array('class'=>'col-sm-12 col-md-12 control-lable required')) !!}
 					<div class="col-sm-12 col-md-12">
 						{!! Form::text('title[]', '' ,['class' => 'form-control'] ) !!}
 					</div>

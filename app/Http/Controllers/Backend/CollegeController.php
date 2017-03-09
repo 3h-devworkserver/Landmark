@@ -89,7 +89,6 @@ $inputs = Input::all();
                         $sid = $inputs['slider'][$key];
                         $description = $inputs['content'][$key];
                         //$coursedesc = $inputs['coursecontent'][$key];
-                        $contact = $inputs['contact'][$key];
                         $url = $inputs['url'][$key];
                         $location = $inputs['location'][$key];
                         if(Input::hasFile('upload'))
@@ -135,7 +134,6 @@ $inputs = Input::all();
                                 'header_image' => $hfilename,
                                 'url' => $url,
                                 'location' => $location,
-                                'contact' => $contact,
                                 'slug' => $newslug,
                                 ]);
                     }
@@ -201,7 +199,6 @@ $inputs = Input::all();
                         $sid = $inputs['slider'];
                         $description = $inputs['content'];
                         //$coursedesc = $inputs['coursecontent'];
-                        $contact = $inputs['contact'];
                         $url = $inputs['url'];
                         $location = $inputs['location'];
                         $filenames = DB::table('college_details')->select('images','header_image')->where('collegeid',$id)->first();
@@ -245,7 +242,6 @@ $inputs = Input::all();
                                 'header_image' => $headername,
                                 'url' => $url,
                                 'location' => $location,
-                                'contact' => $contact,
                                 'slug' => $newslug,
                             ]);
                 return Redirect::to('admin/college');
@@ -261,6 +257,37 @@ $inputs = Input::all();
     public function destroy($id)
     {
         //
+        $cids = Course::select('id','college_id','images')->whereRaw('find_in_set('.$id.', college_id)')->get();
+        if(count($cids) > 1){
+            foreach( $cids as $key => $cid){
+                $parts = explode(',', $cid->college_id);
+                if( count( $parts ) > 1){
+                while(($i = array_search($id, $parts)) !== false) {
+                    unset($parts[$i]);
+                }
+                $finalresult =  implode(',', $parts);
+                 DB::table('course_details')->where('id',$cid->id)->update([
+                    'college_id' => $finalresult
+                 ]);
+                }else{
+                    DB::table('course_details')->where('college_id', '=', $cid->college_id)->delete();
+                     if (!empty($cid->images)) {
+                        if (File::exists('public/img/course/'.$cid->images)) {
+                                unlink('public/img/course/'.$cid->images);
+                            }
+                        }
+                }
+            }
+        }else{
+            
+             DB::table('course_details')->where('college_id', '=', $cids[0])->delete();
+             if (!empty($cids[0]->images)) {
+                if (File::exists('public/img/course/'.$cids[0]->images)) {
+                        unlink('public/img/course/'.$cids[0]->images);
+                    }
+                }
+        }
+        DB::table('college_tabs')->where('clz_id',$id)->delete();
         DB::table('college_details')->where('collegeid', '=', $id)->delete();
         return Redirect::to('admin/college');
     }

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('htmlheader_title')
-College Tab List
+Location List
 @endsection
 @section('main-content')
 <div class="spark-screen">
 	<div class="row page-status-bar">
 				<div class="col-md-12">
-				<a href="{{ route('admin.collegetab.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add College Tab</a>
+				<a href="{{ route('admin.location.create') }}" class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add Location</a>
 				</div>
 	
 			</div>
@@ -14,13 +14,13 @@ College Tab List
 		<div class="col-md-12">
 			
 			<div class="list">
-				@if (count($collegetab) > 0)
+				@if (count($locations) > 0)
 				<table class="table table-bordered table-striped" id="example" width="100%">
 					<thead>
 						<tr>
 							<th>S.N.</th>
-							<th>Title</th>
-							<th>College</th>
+							<th>Name</th>
+							<th>Slug</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -28,17 +28,14 @@ College Tab List
 					
 					<tbody>
 						<?php $k =1; ?>
-						@foreach ($collegetab as $key=>$page)
-						<?php 
-						$clzname = DB::table('college_details')->where('collegeid',$page->clz_id)->first();
-						?>
-						<tr>
+						@foreach ($locations as $key=>$page)
+							<tr>
 							<td>  {{ $k }}
 							</td>
-							<td>@if(!empty($page->title)){{ $page->title }} @endif</td>
-							<td>@if(!empty($clzname->college_name)){{ $clzname->college_name }} @endif</td>
-								<td><a class="btn btn-info btn-sm" href="{{ route('admin.collegetab.edit',['parameter' => $page->id]) }}"><i class="fa fa-pencil"></i> </a>
-								<a class="btn btn-danger btn-sm" href="{{ route('admin.collegetab.delete',['parameter' => $page->id]) }}"><i class="fa fa-trash-o"></i></a></td>
+							<td>{{ $page->name }}</td>
+							<td>{{ $page->slug }}</td>
+								<td><a class="btn btn-info btn-sm" href="{{ route('admin.location.edit',['parameter' => $page->id]) }}"><i class="fa fa-pencil"></i> </a>
+								<a class="btn btn-danger btn-sm" href="{{ route('admin.location.delete',['parameter' => $page->id]) }}"><i class="fa fa-trash-o"></i></a></td>
 						</tr>
 						<?php $k++; ?>
 						@endforeach
@@ -51,7 +48,7 @@ College Tab List
 				          <span class="label label-danger pull-right"><i class="fa fa-eye"></i></span>
 				        </div><!-- /.box-header -->
 				        <div class="box-body">
-				          <p>No any college tab
+				          <p>No Location
 				          </p>
 				        </div><!-- /.box-body -->
       				</div>
